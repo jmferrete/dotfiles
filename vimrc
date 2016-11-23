@@ -10,6 +10,10 @@ Plugin 'fatih/vim-go'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'alessandroyorba/despacio'
+Plugin 'marcopaganini/termschool-vim-theme'
+" Plugin 'valloric/youcompleteme'
 
 call vundle#end()
 
@@ -49,6 +53,7 @@ function! Preserve(command)
 endfunction
 
 autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
+autocmd BufNewFile,BufRead *.pp set filetype=ruby
 
 set t_Co=256
 colorscheme monokai-soda
