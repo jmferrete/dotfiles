@@ -13,6 +13,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'alessandroyorba/despacio'
 Plugin 'marcopaganini/termschool-vim-theme'
+Plugin 'nelstrom/vim-visual-star-search'
 " Plugin 'valloric/youcompleteme'
 
 call vundle#end()
@@ -34,6 +35,8 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set autoindent
+set incsearch
+set hlsearch
 
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
@@ -52,6 +55,10 @@ function! Preserve(command)
     call cursor(l, c)
 endfunction
 
+" Tabs and EOL characters
+set listchars=tab:▸\ ,eol:¬
+set list
+
 autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
 autocmd BufNewFile,BufRead *.pp set filetype=ruby
 
@@ -60,3 +67,6 @@ colorscheme monokai-soda
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set mouse=a
 set tags=/tmp/tags;/
+
+" Search Colors
+highlight Search ctermbg=grey ctermfg=white
