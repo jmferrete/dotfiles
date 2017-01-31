@@ -69,4 +69,4 @@ set mouse=a
 set tags=/tmp/tags;/
 
 " Search Colors
-highlight Search ctermbg=grey ctermfg=white cterm=bold term=underline,bold
+highlight Search ctermbg=white ctermfg=black cterm=italic,bold term=underline,bold
