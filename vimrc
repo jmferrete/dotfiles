@@ -3,6 +3,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
 " All plugins should be placed here
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'The-NERD-tree'
@@ -70,3 +71,6 @@ set tags=/tmp/tags;/
 
 " Search Colors
 highlight Search ctermbg=white ctermfg=black cterm=italic,bold term=underline,bold
+
+" No wrap long lines
+set nowrap
