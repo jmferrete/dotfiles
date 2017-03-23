@@ -17,6 +17,7 @@ Plugin 'alessandroyorba/despacio'
 Plugin 'marcopaganini/termschool-vim-theme'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'wikitopian/hardmode'
 " Plugin 'valloric/youcompleteme'
 
 call vundle#end()
@@ -90,3 +91,7 @@ highlight Search ctermbg=white ctermfg=black cterm=italic,bold term=underline,bo
 
 " No wrap long lines
 set nowrap
+
+" Let me use the hjkl and backspace keys and enable hardmode
+let g:HardMode_level = 'wannabe'
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
