@@ -18,6 +18,7 @@ Plugin 'marcopaganini/termschool-vim-theme'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'wikitopian/hardmode'
+Plugin 'jiangmiao/auto-pairs'
 " Plugin 'valloric/youcompleteme'
 
 call vundle#end()
@@ -39,6 +40,12 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set autoindent
+
+" Indentation by filetype
+autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4
 
 " Incremental searching
 set incsearch
