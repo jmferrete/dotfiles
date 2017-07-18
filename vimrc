@@ -46,6 +46,8 @@ autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd Filetype cform setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype json setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " Incremental searching
 set incsearch
@@ -77,6 +79,9 @@ set list
 
 " Open .pp files with ruby code style
 autocmd BufNewFile,BufRead *.pp set filetype=ruby
+
+" Set JSON filetype for Cloudformation files
+autocmd BufNewFile,BufRead *.cform set filetype=json
 
 " Enable 256 color support
 set t_Co=256
