@@ -1,0 +1,230 @@
+# vim:filetype=i3
+# i3 config file (v4)
+set $mod Mod4
+set $editor termite
+
+set_from_resource $darkred     color1  #632B30
+set_from_resource $red         color9  #FF0000
+set_from_resource $darkgreen   color2  #2A6344
+set_from_resource $green       color10 #00FF00
+set_from_resource $darkyellow  color3  #E6AF2E
+set_from_resource $yellow      color11 #FADF63
+set_from_resource $darkblue    color4  #10354B
+set_from_resource $blue        color12 #0000FF
+set_from_resource $darkmagenta color5  #401B2C
+set_from_resource $magenta     color13 #632944
+set_from_resource $darkcyan    color6  #4381A5
+set_from_resource $cyan        color14 #548CAD
+set_from_resource $darkwhite   color7  #888888
+set_from_resource $white       color15 #FFFFFF
+# Use custom colors for black
+set $black       #282828
+set $darkblack   #1d2021
+set $transparent #00000000
+
+set $height 34
+
+#set $ws1  "1:  "
+#set $ws2  "2:  "
+#set $ws3  "3:  "
+#set $ws4  "4:  "
+#set $ws5  "5:  "
+#set $ws6  "6:  "
+#set $ws7  "7:  "
+#set $ws8  "8:  "
+#set $ws9  "9:  "
+#set $ws10 "10:  "
+#
+#set $default_gaps_inner 0
+#set $default_gaps_outer 0
+#gaps inner $default_gaps_inner
+#gaps outer $default_gaps_outer
+#
+#workspace $ws1 gaps inner 0
+#workspace $ws1 gaps outer 0
+#workspace $ws9 gaps inner 0
+#workspace $ws9 gaps outer 0
+#workspace $ws10 gaps inner 0
+#workspace $ws10 gaps outer 0
+
+workspace_auto_back_and_forth yes
+force_display_urgency_hint 0 ms
+focus_on_window_activation urgent
+
+floating_minimum_size -1 x -1
+floating_maximum_size -1 x -1
+
+font pango:Hack, FontAwesome 12
+
+#                       BORDER         BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+client.focused          $darkwhite     $darkwhite  $white      $darkwhite  $darkwhite
+client.unfocused        $transparent   $black      $darkwhite  $darkblack  $transparent
+client.focused_inactive $transparent   $black      $darkwhite  $darkblack  $transparent
+client.urgent           $darkred       $darkred    $black      $darkred    $darkred
+client.background       $black
+
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ntilde focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+ntilde move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Lock screen
+bindsym $mod+shift+x exec $HOME/bin/i3lock-custom
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ntilde resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+#    verbose yes
+    status_command i3blocks
+    i3bar_command i3bar -t
+    position top
+    font pango:Hack, FontAwesome 11
+    strip_workspace_numbers yes
+    separator_symbol "■"
+    bindsym button4 nop
+    bindsym button5 nop
+    tray_output eDP1
+    tray_output LVDS-0
+    tray_padding 0
+    height $height
+    colors {
+        statusline         $white
+        background         $transparent
+        separator          $transparent
+
+#                          BORDER       BACKGROUND   TEXT
+        focused_workspace  $transparent $transparent $white
+        inactive_workspace $transparent $transparent $darkwhite
+        active_workspace   $transparent $transparent $darkwhite
+        urgent_workspace   $darkred     $darkred     $transparent
+        binding_mode       $darkred     $darkred     $transparent
+    }
+}
+
+# exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/jferrete/.config/i3/workspaces/workspace-1.json'"
+# exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/jferrete/.config/i3/workspaces/workspace-2.json'"
+# exec --no-startup-id "i3-msg 'workspace 3; append_layout /home/jferrete/.config/i3/workspaces/workspace-3.json'"
+# exec --no-startup-id "i3-msg 'workspace 4; append_layout /home/jferrete/.config/i3/workspaces/workspace-4.json'"
+
+exec_always --no-startup-id "feh --bg-scale /home/jferrete/Pictures/old_republic_logo.jpg"
+exec --no-startup-id "compton -b -D 4 --config ~/.compton.conf"
+
+gaps inner 5
+gaps outer 5
