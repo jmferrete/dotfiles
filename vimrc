@@ -48,6 +48,7 @@ autocmd Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype cform setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype json setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype lua setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " Incremental searching
 set incsearch
@@ -82,6 +83,9 @@ autocmd BufNewFile,BufRead *.pp set filetype=ruby
 
 " Set JSON filetype for Cloudformation files
 autocmd BufNewFile,BufRead *.cform set filetype=json
+
+" Set LUA filetype for PICO-8 files
+autocmd BufNewFile,BufRead *.p8 set filetype=lua
 
 " Enable 256 color support
 set t_Co=256
